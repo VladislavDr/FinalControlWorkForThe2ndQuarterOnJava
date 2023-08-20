@@ -9,9 +9,9 @@ public class ChoosingToy {
         Toy temp = null;
         int countToy;
         int countGiftToy = 10;
-        if (choosToy.size()<countGiftToy){
+        if (choosToy.size() < countGiftToy){
             if (toyList.isEmpty()){
-                System.out.println("В магазине не хвататет игрушек для дальнейшего добавления их в подарочный список");
+                System.out.println("В магазине не хвататет игрушек для дальнейшего добавления их в подарочный список.");
             } else {
                 int sizeLst = countGiftToy - choosToy.size();
                 for (int i = 0; i < sizeLst; i++) {

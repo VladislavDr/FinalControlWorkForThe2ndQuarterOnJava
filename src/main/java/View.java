@@ -24,7 +24,6 @@ public class View {
                     System.out.println(toyList);
                     break;
                 case "event":
-//                    choosingToy = ChoosingToy.run(toyList, choosingToy);
                     ChoosingToy.run(toyList, choosingToy);
                     break;
                 case "gift":
