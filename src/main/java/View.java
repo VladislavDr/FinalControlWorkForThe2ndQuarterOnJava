@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class View {
@@ -14,24 +12,22 @@ public class View {
             String text = scanner.nextLine();
             switch (text) {
                 case "add":
-//                    toyList = AddToy.addToy( sumID);
-//                    System.out.println(toyList + " Новый список игрушек.");
-                    Integer sumID = ToyStore.toyList.size();
-                    AddToy.addToy(sumID);
+                    Integer sumID = ToyStore.TOY_LIST.size();
+                    ToyStore.AddToy(sumID);
                     break;
                 case "print":
-                    if(ToyStore.toyList.isEmpty()){
+                    if(ToyStore.TOY_LIST.isEmpty()){
                         System.out.println("Нечего выводить. В магазине закончились игрушки.");
-                    } else ToyStore.toyList.stream().forEach(System.out::print);
+                    } else ToyStore.TOY_LIST.stream().forEach(System.out::print);
                     break;
                 case "event":
-                    ChoosingToy.run(ToyStore.toyList, ToyStore.choosingToy);
+                    ToyStore.ChoosingToy();
                     break;
                 case "gift":
-                    GiftToy.GiftToy(ToyStore.choosingToy);
+                    GiftToy.GiftToy(ToyStore.CHOOSING_TOY);
                     break;
                 case "percent":
-                   PercentageChange.chance(ToyStore.toyList);
+                   PercentageChange.chance(ToyStore.TOY_LIST);
                     break;
                 case "exit":
                     System.exit(0);

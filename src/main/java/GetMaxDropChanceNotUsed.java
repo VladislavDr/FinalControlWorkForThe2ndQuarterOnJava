@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class GetMaxDropChance {
+public class GetMaxDropChanceNotUsed {
     public static Toy getDropChance(List<Toy> toyList) {
         Toy temp = null;
         Integer maxDropChance = 0;

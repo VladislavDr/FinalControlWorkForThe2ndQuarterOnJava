@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class GetDropChance {
+public class GetDropChanceNotUsed {
     public static Toy getDropChance(List<Toy> toyList){
 
         Toy temp = null;

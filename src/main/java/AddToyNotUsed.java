@@ -1,7 +1,6 @@
-import java.util.List;
 import java.util.Scanner;
 
-public class AddToy {
+public class AddToyNotUsed {
     public static void addToy( Integer sumID){
         System.out.println("Введите название игрушки, ее количество и шанс выпадения. Вводите все данные через пробел");
         Scanner scanner = new Scanner(System.in);
@@ -18,9 +17,9 @@ public class AddToy {
                 Integer count = Integer.valueOf(textUser[1]);
                 Integer chanceOfFallingOut = Integer.valueOf(textUser[2]);
                 Toy toy = new Toy(id, name, count, chanceOfFallingOut);
-                ToyStore.toyList.add(toy);
+                ToyStore.TOY_LIST.add(toy);
                 System.out.println("Успешно добавлена игрушка " + toy);
-                ToyStore.toyList.stream().forEach(System.out::print);
+                ToyStore.TOY_LIST.stream().forEach(System.out::print);
             }
         } catch (NumberFormatException e){
             System.out.println("Данные введены не корректно!");

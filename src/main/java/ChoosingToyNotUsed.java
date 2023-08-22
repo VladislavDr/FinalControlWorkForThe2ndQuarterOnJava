@@ -1,20 +1,20 @@
 import java.util.List;
 
 
-public class ChoosingToy {
+public class ChoosingToyNotUsed {
     public static List<Toy> run(List<Toy> toyList, List<Toy> choosToy) {
 
         Toy temp = null;
-        if (choosToy.size() < ToyStore.countChoosingToyLst){
+        if (choosToy.size() < ToyStore.COUNT_CHOOSING_TOY){
             if (toyList.isEmpty()){
                 System.out.println("В магазине не хвататет игрушек для дальнейшего добавления их в подарочный список.");
             } else {
-                int sizeLst = ToyStore.countChoosingToyLst - choosToy.size();
+                int sizeLst = ToyStore.COUNT_CHOOSING_TOY - choosToy.size();
                 for (int i = 0; i < sizeLst; i++) {
                     if(!toyList.isEmpty()){
-                        temp = GetDropChance.getDropChance(ToyStore.toyList);
+                        temp = GetDropChanceNotUsed.getDropChance(ToyStore.TOY_LIST);
                         if(temp == null){
-                            temp = GetMaxDropChance.getDropChance(ToyStore.toyList);
+                            temp = GetMaxDropChanceNotUsed.getDropChance(ToyStore.TOY_LIST);
                         }
                     } else {
                         System.out.println("У вас закончились игрушки в магазине. Пора добавить новые.");
