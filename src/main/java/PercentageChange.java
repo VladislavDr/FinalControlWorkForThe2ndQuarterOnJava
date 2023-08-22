@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,7 +6,8 @@ public class PercentageChange {
     public static void chance(List<Toy> toyList){
         System.out.println("Введите id игрушки");
         Scanner scanner = new Scanner(System.in);
-        Integer id = scanner.nextInt();
+        try {
+            Integer id = scanner.nextInt();
         for (Toy toy : toyList) {
             if (toy.getId() == id) {
                 System.out.println("Выбрана игрушка - " + toy);
@@ -15,6 +17,9 @@ public class PercentageChange {
                 toy.setChanceOfFallingOut(became);
                 System.out.println("Было " + was + "%. Стало " + became + "%.");
             }
+        }
+        } catch (InputMismatchException e){
+            System.out.println("Данные введены не верно!");
         }
     }
 }

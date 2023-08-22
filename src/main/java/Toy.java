@@ -41,6 +41,6 @@ public class Toy {
                 ": id " + id +
                 ", count " + count +
                 ", percent " + chanceOfFallingOut +
-                '.';
+                ". ";
     }
 }
