@@ -68,7 +68,7 @@ public class ToyStore {
             String[] textUser = scanTextUser.split(" ");
             if (textUser.length != 3){
                 System.out.println("Вы ввели не корректные данные");
-                AddToyNotUsed.addToy(sumID);
+//                AddToyNotUsed.addToy(sumID);
             } else {
                 Integer id = sumID + 1;
                 String name = textUser[0];

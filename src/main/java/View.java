@@ -31,6 +31,8 @@ public class View {
                     break;
                 case "exit":
                     System.exit(0);
+                default:
+                    System.out.println("Команда не распознана. Попробуй еще разок.");
             }
         }
 
