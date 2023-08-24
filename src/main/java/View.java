@@ -4,7 +4,7 @@ public class View {
     public static void menu(){
         ToyStore.toyStore();
         while (true) {
-            System.out.println("\nВведите add, если хотите добавить игрушку. Введите print, если хотите посмотреть " +
+            System.out.println("\nВведите add, если хотите добавить игрушку. Введите show, если хотите посмотреть " +
                     " на список игрушек в магазине.\nВведите event, если хотите увидеть игрушки, " +
                     "отобранные для подарков. Введите percent, если хотите поменять шанс выпадения игрушек. \n" +
                     "Ввдетие gift, чтобы вручить призовую игрушку. Введите exit, если хотите выйти. \n");
@@ -12,22 +12,19 @@ public class View {
             String text = scanner.nextLine();
             switch (text) {
                 case "add":
-                    Integer sumID = ToyStore.TOY_LIST.size();
-                    ToyStore.AddToy(sumID);
+                    ToyService.AddToy();
                     break;
-                case "print":
-                    if(ToyStore.TOY_LIST.isEmpty()){
-                        System.out.println("Нечего выводить. В магазине закончились игрушки.");
-                    } else ToyStore.TOY_LIST.stream().forEach(System.out::print);
+                case "show":
+                    ToyService.show();
                     break;
                 case "event":
                     ToyStore.ChoosingToy();
                     break;
                 case "gift":
-                    GiftToy.GiftToy(ToyStore.CHOOSING_TOY);
+                    ToyService.giftToy();
                     break;
                 case "percent":
-                   PercentageChange.chance(ToyStore.TOY_LIST);
+                    ToyService.chanceToyChance();
                     break;
                 case "exit":
                     System.exit(0);
