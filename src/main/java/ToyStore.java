@@ -10,8 +10,8 @@ public class ToyStore {
     public static List<Toy> toyStore(){
         TOY_LIST.add(new Toy(01, "Beer", 3, 10));
         TOY_LIST.add(new Toy(02, "Robot", 2, 20));
-//        TOY_LIST.add(new Toy(03, "Mouse", 10, 70));
-//        TOY_LIST.add(new Toy(04, "Car", 5, 40));
+        TOY_LIST.add(new Toy(03, "Mouse", 10, 70));
+        TOY_LIST.add(new Toy(04, "Car", 5, 40));
         TOY_LIST.add(new Toy(05, "Duck", 4, 30));
         TOY_LIST.add(new Toy(06, "Puzzle", 2, 10));
         return TOY_LIST;
@@ -67,12 +67,12 @@ public class ToyStore {
 
     public static List<Toy> ChoosingToy() {
 
-        Toy temp = null;
         if (TOY_LIST.isEmpty()) {
             System.out.println("В магазине не хвататет игрушек для дальнейшего добавления их в подарочный список.");
         } else if (CHOOSING_TOY.size() >= COUNT_CHOOSING_TOY) {
             System.out.println("У вас заполнен список игрушек. Сперва раздарите часть.");
         } else {
+                Toy temp = null;
                 int sizeLst = COUNT_CHOOSING_TOY - CHOOSING_TOY.size();
                 for (int i = 0; i < sizeLst; i++) {
                     if(!TOY_LIST.isEmpty()){
