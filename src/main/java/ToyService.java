@@ -1,12 +1,9 @@
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class ToyService {
     public static void show(){
-        if(ToyStore.TOY_LIST.isEmpty()){
-            System.out.println("Нечего выводить. В магазине закончились игрушки.");
-        } else ToyStore.TOY_LIST.stream().forEach(System.out::print);
+        ToyStore.show();
     }
 
     public static void chanceToyChance(){
@@ -18,7 +15,7 @@ public class ToyService {
                 if (toy.getId() == id) {
                     System.out.println("Выбрана игрушка - " + toy);
                     Integer was = toy.getChanceOfFallingOut();
-                    System.out.println("Введите новый процент выпадения (число от 1 до 100");
+                    System.out.println("Введите новый процент выпадения (число от 1 до 100)");
                     Integer became = scanner.nextInt();
                     if (became < 1 || became > 100){
                         throw new IllegalArgumentException("Шанс выпадения не может быть меньше 1 и больше 99");
@@ -27,7 +24,7 @@ public class ToyService {
                     System.out.println("Было " + was + "%. Стало " + became + "%.");
                 }
             }
-        } catch (InputMismatchException e){
+        } catch (IllegalArgumentException e){
             System.out.println("Данные введены не верно!");
         }
     }
@@ -55,7 +52,7 @@ public class ToyService {
             ToyStore.AddToy(toy);
             System.out.println("Успешно добавлена игрушка " + toy);
 
-        } catch (NumberFormatException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Данные введены не корректно!");
         }
     }

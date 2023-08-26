@@ -10,16 +10,29 @@ public class ToyStore {
     public static List<Toy> toyStore(){
         TOY_LIST.add(new Toy(01, "Beer", 3, 10));
         TOY_LIST.add(new Toy(02, "Robot", 2, 20));
-        TOY_LIST.add(new Toy(03, "Mouse", 10, 70));
-        TOY_LIST.add(new Toy(04, "Car", 5, 40));
+//        TOY_LIST.add(new Toy(03, "Mouse", 10, 70));
+//        TOY_LIST.add(new Toy(04, "Car", 5, 40));
         TOY_LIST.add(new Toy(05, "Duck", 4, 30));
         TOY_LIST.add(new Toy(06, "Puzzle", 2, 10));
         return TOY_LIST;
     }
 
+    public static void show(){
+        if(TOY_LIST.isEmpty()){
+            System.out.println("Нечего выводить. В магазине закончились игрушки.");
+        } else TOY_LIST.forEach(System.out::print);
+    }
+
+    public static void remove(Toy toy) {
+        if (toy.getCount() > 1) {
+            toy.setCount(toy.getCount() - 1);
+        } else {
+            TOY_LIST.remove(toy);
+        }
+    }
+
     public static Toy GetDropChance(){
         Toy temp = null;
-        int countToy;
 
         int rnd = GetRandom.rnd();
         for (Toy toy: TOY_LIST) {
@@ -28,18 +41,14 @@ public class ToyStore {
             }
         }
         if (temp != null){
-            countToy = temp.getCount() - 1;
-            temp.setCount(countToy);
-            if(temp.getCount() == 0){
-                TOY_LIST.remove(temp);
-            }
+            remove(temp);
         }
         return temp;
     }
     public static Toy GetMaxDropChance(){
         Toy temp = null;
         Integer maxDropChance = 0;
-        int countToy;
+
         for (Toy toy : TOY_LIST) {
             if (toy.getChanceOfFallingOut() > maxDropChance){
                 temp = toy;
@@ -47,12 +56,9 @@ public class ToyStore {
             }
         }
 
-        countToy = temp.getCount() - 1;
-        temp.setCount(countToy);
-        if(temp.getCount() == 0){
-            TOY_LIST.remove(temp);
-        }
+//        temp.setCount(temp.getCount() - 1);
 //        TOY_LIST.removeIf(toy -> toy.getCount() == 0);
+        remove(temp);
         return temp;
     }
     public static void AddToy(Toy toy){
