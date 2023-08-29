@@ -31,7 +31,7 @@ public class ToyStore {
         }
     }
 
-    public static Toy GetDropChance(){
+    public static Toy getDropChance(){
         Toy temp = null;
 
         int rnd = GetRandom.rnd();
@@ -45,7 +45,7 @@ public class ToyStore {
         }
         return temp;
     }
-    public static Toy GetMaxDropChance(){
+    public static Toy getMaxDropChance(){
         Toy temp = null;
         Integer maxDropChance = 0;
 
@@ -61,11 +61,11 @@ public class ToyStore {
         remove(temp);
         return temp;
     }
-    public static void AddToy(Toy toy){
+    public static void addToy(Toy toy){
         TOY_LIST.add(toy);
     }
 
-    public static List<Toy> ChoosingToy() {
+    public static List<Toy> choosingToy() {
 
         if (TOY_LIST.isEmpty()) {
             System.out.println("В магазине не хвататет игрушек для дальнейшего добавления их в подарочный список.");
@@ -76,9 +76,9 @@ public class ToyStore {
                 int sizeLst = COUNT_CHOOSING_TOY - CHOOSING_TOY.size();
                 for (int i = 0; i < sizeLst; i++) {
                     if(!TOY_LIST.isEmpty()){
-                        temp = GetDropChance();
+                        temp = getDropChance();
                         if(temp == null){
-                            temp = GetMaxDropChance();
+                            temp = getMaxDropChance();
                         }
                     } else {
                     System.out.println("У вас закончились игрушки в магазине. Пора добавить новые.");
@@ -92,7 +92,7 @@ public class ToyStore {
         return CHOOSING_TOY;
     }
 
-    public static void GiftToy(List<Toy> toyList){
+    public static void giftToy(List<Toy> toyList){
 
         try (FileWriter writer = new FileWriter("List of gifts.txt", true)){
             if (!toyList.isEmpty()){

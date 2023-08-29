@@ -12,13 +12,13 @@ public class Main {
             String text = scanner.nextLine();
             switch (text) {
                 case "add":
-                    ToyService.AddToy();
+                    ToyService.addToy();
                     break;
                 case "show":
                     ToyService.show();
                     break;
                 case "event":
-                    ToyStore.ChoosingToy();
+                    ToyStore.choosingToy();
                     break;
                 case "gift":
                     ToyService.giftToy();

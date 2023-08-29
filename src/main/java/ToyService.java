@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ToyService {
@@ -29,7 +28,7 @@ public class ToyService {
         }
     }
 
-    public static void AddToy() {
+    public static void addToy() {
         Integer sumID = ToyStore.TOY_LIST.size();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название игрушки");
@@ -49,7 +48,7 @@ public class ToyService {
                 throw new IllegalArgumentException("Неверный диапазон числа!");
 
             Toy toy = new Toy(id, name, quantity, chanceOfFallingOut);
-            ToyStore.AddToy(toy);
+            ToyStore.addToy(toy);
             System.out.println("Успешно добавлена игрушка " + toy);
 
         } catch (IllegalArgumentException e) {
@@ -58,6 +57,6 @@ public class ToyService {
     }
 
     public static void giftToy(){
-        ToyStore.GiftToy(ToyStore.CHOOSING_TOY);
+        ToyStore.giftToy(ToyStore.CHOOSING_TOY);
     }
 }
